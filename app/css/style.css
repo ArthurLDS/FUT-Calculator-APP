@@ -1,0 +1,18 @@
+.centered{
+  margin-left: auto;
+  margin-right: auto;
+  float: none !important;
+}
+.header-page{
+  text-align: center;
+}
+.content-calculator{
+  margin-top: 130px;
+}
+.icon-coin{
+  width: 15px;
+  height: 18px;
+}
+.info-trade{
+  font-size: 11pt;
+}
