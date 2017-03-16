@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="futCalculatorApp">
+  <head>
+    <meta charset="utf-8">
+    <title>FUT Calculator</title>
+    <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body ng-controller="futCalculatorCtrl">
+    <section class="container">
+      <header class="col-md-12 header-page">
+        <h2>FUT Calculator 1.0</h2>
+      </header>
+      <article class="col-md-4 centered content-calculator">
+        <section class="panel panel-primary">
+          <header class="panel-heading">
+            Trade panel
+          </header>
+          <article class="panel-body">
+            <form class="" action="index.html" method="post">
+              <div class="form-group">
+                <input type="text" class="form-control" ng-model="trade.purchasePrice" placeholder="Purchase price">
+
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" ng-model="trade.sellBidPrice" placeholder="Sell Bid Price">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" ng-model="trade.sellBuyNowPrice" placeholder="Sell Buy now Price">
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" ng-model="trade.numCardsSolds" placeholder="Cards solds">
+              </div>
+              <div class="form-group">
+                <button type="button" ng-click="calculate(trade)" class="btn btn-success btn-block" name="button">Calculate</button>
+                <button type="button" ng-click="trade = {}" class="btn btn-danger btn-block" name="button">Clear</button>
+              </div>
+            </form>
+
+            <div class="info-trade">
+              <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
+              Bid profit: <strong>{{trade.profitBid}}</strong>
+            </div>
+            <div class="info-trade">
+              <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
+              Buy Now profit: <strong>{{trade.profitBuyNow}}</strong>
+            </div>
+            <div class="info-trade">
+              <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
+              Ea Tax Bid (5%): <strong>{{trade.eaTaxBid}}</strong>
+            </div>
+            <div class="info-trade">
+              <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
+              Ea Tax Buy Now (5%): <strong>{{trade.eaTaxBuyNow}}</strong>
+            </div>
+
+          </article>
+        </section>
+      </article>
+      <article class="col-md-4">
+
+      </article>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="lib/angular.min.js"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/controllers/futCalculatorCtrl.js" charset="utf-8"></script>
+  </body>
+</html>
