@@ -3,16 +3,48 @@
   margin-right: auto;
   float: none !important;
 }
+.cursor-pointer{
+  cursor: pointer;
+}
+.inline-block{
+  display: inline-block;
+}
 .header-page{
   text-align: center;
 }
-.content-calculator{
-  margin-top: 130px;
+.link-none{
+  color: #FFF;
 }
+.link-none:active{
+  color: #FFF;
+}
+.link-none:focus{
+  color: #FFF;
+}
+.link-none:hover{
+  color: #DDD;
+}
+/* Trade informations */
 .icon-coin{
   width: 15px;
   height: 18px;
 }
 .info-trade{
   font-size: 11pt;
+}
+
+.isProfit{
+  font-weight: bolder;
+  color: #12c71a;
+}
+.isLoss{
+  font-weight: bolder;
+  color: #F22;
+}
+.btn-save-trade{
+  color: #FFF;
+  font-size: 14pt;
+}
+.panel-saved-trade{
+  margin-bottom: 10px;
 }
