@@ -15,9 +15,15 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
   };
 
   $scope.saveTrade = function(trade){
+    if(!trade.name)
+      trade.name = "Unnamed trade";
     $scope.tradeList.push(trade);
     $scope.trade = {};
-    console.log($scope.tradeList);
+    $scope.tradeForm.$setPristine(true);
+  };
+
+  $scope.isEmptyObject = function(obj){
+    return Object.keys(obj).length === 0;
   };
 
   let calculateProfit = function(purchasePrice, sellBidPrice){
