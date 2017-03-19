@@ -3,6 +3,18 @@
   margin-right: auto;
   float: none !important;
 }
+.header-page{
+  margin-bottom: 40px;
+}
+@media (min-width: 1200px){
+  .container-small{
+    width: 800px;
+  }
+}
+
+.money-icon{
+  color: #e8e100;
+}
 .cursor-pointer{
   cursor: pointer;
 }
@@ -46,5 +58,5 @@
   font-size: 14pt;
 }
 .panel-saved-trade{
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 }
