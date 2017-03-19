@@ -69,7 +69,7 @@
         </section>
       </article>
       <article class="col-md-4">
-        <article ng-class="{panel-success : (profitBid > 0 && profitBuyNow > 0), panel-danger : (profitBid <= 0 && profitBuyNow <= 0)}" class="panel panel-saved-trade" ng-repeat="trade in tradeList">
+        <article class="panel panel-saved-trade" ng-repeat="trade in tradeList">
           <header class="panel-heading cursor-pointer" ng-click="collapseShow = !collapseShow">
             {{trade.name}}
             <span class="pull-right">
