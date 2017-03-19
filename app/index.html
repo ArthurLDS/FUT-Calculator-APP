@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body ng-controller="futCalculatorCtrl">
-    <section class="container">
+    <section class="container container-small">
       <header class="col-md-12 header-page centered">
         <h2>FUT Calculator 1.0</h2>
       </header>
-      <article class="col-md-4 content-calculator">
+      <article class="col-md-6 content-calculator">
         <section class="panel panel-primary">
           <header class="panel-heading">
             <div class="inline-block">
@@ -21,33 +21,38 @@
             </div>
           </header>
           <article class="panel-body">
-            <form class="" action="index.html" method="post">
+            <form class="" name="tradeForm" action="index.html" method="post">
               <div class="form-group">
                 <input type="text" class="form-control" ng-model="trade.name" placeholder="Trade Name">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" ng-model="trade.purchasePrice" placeholder="Purchase price">
+                <input type="number" class="form-control" ng-model="trade.purchasePrice" placeholder="Purchase price" ng-required="true">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" ng-model="trade.sellBidPrice" placeholder="Sell Bid Price">
+                <input type="number" class="form-control" ng-model="trade.sellBidPrice" placeholder="Sell Bid Price" ng-required="true">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" ng-model="trade.sellBuyNowPrice" placeholder="Sell Buy now Price">
+                <input type="number" class="form-control" ng-model="trade.sellBuyNowPrice" placeholder="Sell Buy now Price" ng-required="true">
               </div>
               <div class="form-group">
-                <input type="number" class="form-control" ng-model="trade.numCardsSolds" placeholder="Cards solds">
+                <input type="number" class="form-control" ng-model="trade.numCardsSolds" placeholder="Cards solds" ng-required="true">
               </div>
               <div class="form-group">
-                <button type="button" ng-click="calculate(trade)" class="btn btn-success btn-block" name="button">Calculate</button>
-                <button type="button" ng-click="trade = {}" class="btn btn-danger btn-block" name="button">Clear</button>
-                <button type="button" ng-click="saveTrade(trade)" class="btn btn-primary btn-block">
+                <button type="button" ng-disabled="tradeForm.$invalid" ng-click="calculate(trade)" class="btn btn-success btn-block" name="button">Calculate</button>
+                <button type="button" ng-disabled="isEmptyObject(trade)" ng-click="trade = {}" class="btn btn-danger btn-block" name="button">Clear</button>
+                <button type="button" ng-disabled="tradeForm.$invalid" ng-click="saveTrade(trade)" class="btn btn-primary btn-block">
                     <i class="fa fa-floppy-o" aria-hidden="true"></i>
                     Save trade
                 </button>
               </div>
             </form>
 
-            <article ng-if="trade.profitBid && trade.profitBuyNow">
+            <article ng-if="tradeForm.$invalid && tradeForm.$dirty" class="alert alert-danger">
+              <i class="fa fa-info-circle"></i>
+              There Are blank fields! Please fill them.
+            </article>
+
+            <article ng-if="trade.profitBid || trade.profitBuyNow">
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
                 Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid}} coins</span>
@@ -68,9 +73,14 @@
           </article>
         </section>
       </article>
-      <article class="col-md-4">
-        <article class="panel panel-success panel-saved-trade" ng-repeat="trade in tradeList">
+      <article class="col-md-6">
+        <div ng-if="tradeList.length<=0" class="alert alert-info">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          No trades saved now.
+        </div>
+        <article class="panel panel-primary panel-saved-trade" ng-repeat="trade in tradeList">
           <header class="panel-heading cursor-pointer" ng-click="collapseShow = !collapseShow">
+            <i class="fa fa-money money-icon" aria-hidden="true"></i>
             {{trade.name}}
             <span class="pull-right">
               <i ng-if="!collapseShow" class="fa fa-plus" aria-hidden="true"></i>
@@ -96,9 +106,6 @@
             </div>
           </article>
         </article>
-      </article>
-      <article class="col-md-4 jumbotron">
-
       </article>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
