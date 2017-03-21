@@ -44,7 +44,9 @@
 .info-trade{
   font-size: 11pt;
 }
-
+.info-trade-btn{
+  margin-top: 10px;
+}
 .isProfit{
   font-weight: bolder;
   color: #12c71a;
