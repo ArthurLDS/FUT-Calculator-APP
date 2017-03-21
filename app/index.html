@@ -46,13 +46,13 @@
                 </button>
               </div>
             </form>
-
             <article ng-if="tradeForm.$invalid && tradeForm.$dirty" class="alert alert-danger">
               <i class="fa fa-info-circle"></i>
               There Are blank fields! Please fill them.
             </article>
 
             <article ng-if="trade.profitBid || trade.profitBuyNow">
+
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
                 Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid}} coins</span>
@@ -78,7 +78,7 @@
           <i class="fa fa-info-circle" aria-hidden="true"></i>
           No trades saved now.
         </div>
-        <article class="panel panel-primary panel-saved-trade" ng-repeat="trade in tradeList">
+        <article class="panel panel-primary panel-saved-trade" ng-repeat="trade in $tradeList">
           <header class="panel-heading cursor-pointer" ng-click="collapseShow = !collapseShow">
             <i class="fa fa-money money-icon" aria-hidden="true"></i>
             {{trade.name}}
@@ -88,6 +88,10 @@
             </span>
           </header>
           <article class="panel-body" ng-show="collapseShow">
+            <div class="info-trade">
+              <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
+              Purchase price: <strong>{{trade.purchasePrice}} coins</strong>
+            </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
               Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid}} coins</span>
@@ -104,6 +108,10 @@
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
               Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow}} coins</span>
             </div>
+            <div class="info-trade info-trade-btn">
+              <button type="button" ng-click="deleteTrade(trade)" class="btn btn-danger btn-block" name="button">Delete trade</button>
+            </div>
+
           </article>
         </article>
       </article>
@@ -114,5 +122,6 @@
     <script src="lib/angular.min.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
     <script src="js/controllers/futCalculatorCtrl.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
   </body>
 </html>
