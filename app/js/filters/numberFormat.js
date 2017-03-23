@@ -1,10 +1,10 @@
 angular.module("futCalculatorApp").filter("numberFormat", function(){
   return function(input, sizeStringGroup, separator){
     input = input.toString();
-
-    if(input.length<=3) return input;
+    
     if(!separator) separator = ".";
     if(!sizeStringGroup) sizeStringGroup = 3;
+    if(input.length<=sizeStringGroup) return input;
 
     let stringFormatted = "";
     let count = 0;
