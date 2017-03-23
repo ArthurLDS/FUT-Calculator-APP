@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html ng-app="futCalculatorApp">
-  <head>
-    <meta charset="utf-8">
-    <title>FUT Calculator</title>
-    <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body ng-controller="futCalculatorCtrl">
-    <section class="container container-small">
+<head>
+  <meta charset="utf-8">
+  <title>FUT Calculator</title>
+  <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="lib/angular.min.js"></script>
+  <script src="js/app.js" charset="utf-8"></script>
+  <script src="js/controllers/futCalculatorCtrl.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+  <script src="js/filters/numberFormat.js" charset="utf-8"></script>
+  <script src="js/config/interceptorsConfig.js" charset="utf-8"></script>
+  <script src="js/interceptors/loadingInterceptor.js" charset="utf-8"></script>
+
+</head>
+<body ng-controller="futCalculatorCtrl">
+  <section class="container container-small">
+
+    <article ng-show="loading" class="">
+      <h1>Carregando...</h1>
+    </article>
+
+    <section ng-hide="loading">
       <header class="col-md-12 header-page centered">
         <h2>FUT Calculator 1.0</h2>
       </header>
@@ -41,8 +58,8 @@
                 <button type="button" ng-disabled="tradeForm.$invalid" ng-click="calculate(trade)" class="btn btn-success btn-block" name="button">Calculate</button>
                 <button type="button" ng-disabled="isEmptyObject(trade)" ng-click="trade = {}" class="btn btn-danger btn-block" name="button">Clear</button>
                 <button type="button" ng-disabled="tradeForm.$invalid" ng-click="saveTrade(trade)" class="btn btn-primary btn-block">
-                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                    Save trade
+                  <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                  Save trade
                 </button>
               </div>
             </form>
@@ -55,19 +72,19 @@
 
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid}} coins</span>
+                Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid| numberFormat}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Buy Now profit: <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow}} coins</span>
+                Buy Now profit: <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow| numberFormat}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Ea Tax Bid (5%): <span class="isLoss">{{trade.eaTaxBid}} coins</span>
+                Ea Tax Bid (5%): <span class="isLoss">{{trade.eaTaxBid| numberFormat}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow}} coins</span>
+                Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow| numberFormat}} coins</span>
               </div>
             </article>
           </article>
@@ -82,7 +99,7 @@
           <header class="panel-heading cursor-pointer" ng-click="collapseShow = !collapseShow">
             <i class="fa fa-money money-icon" aria-hidden="true"></i>
             {{trade.name}}
-            <span class="pull-right"> 
+            <span class="pull-right">
               <i ng-if="!collapseShow" class="fa fa-plus" aria-hidden="true"></i>
               <i ng-if="collapseShow" class="fa fa-window-minimize" aria-hidden="true"></i>
             </span>
@@ -90,23 +107,35 @@
           <article class="panel-body" ng-show="collapseShow">
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Purchase price: <strong>{{trade.purchasePrice}} coins</strong>
+              Purchase price: <strong>{{trade.purchasePrice| numberFormat}} coins</strong>
             </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid}} coins</span>
+              Sell Bid price: <strong>{{trade.sellBidPrice| numberFormat}} coins</strong>
             </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Buy Now profit: <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow}} coins</span>
+              Sell Buy now price: <strong>{{trade.sellBuyNowPrice| numberFormat}} coins</strong>
             </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Ea Tax Bid (5%): <span class="isLoss">{{trade.eaTaxBid}} coins</span>
+              Cards solds: <strong>{{trade.numCardsSolds| numberFormat}} cards</strong>
             </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow}} coins</span>
+              Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid| numberFormat}} coins</span>
+            </div>
+            <div class="info-trade">
+              <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
+              Buy Now profit: <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow | numberFormat}} coins</span>
+            </div>
+            <div class="info-trade">
+              <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
+              Ea Tax Bid (5%): <span class="isLoss">{{trade.eaTaxBid| numberFormat}} coins</span>
+            </div>
+            <div class="info-trade">
+              <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
+              Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow| numberFormat}} coins</span>
             </div>
             <div class="info-trade info-trade-btn">
               <button type="button" ng-click="deleteTrade(trade)" class="btn btn-danger btn-block" name="button">Delete trade</button>
@@ -116,12 +145,7 @@
         </article>
       </article>
     </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </section>
 
-    <script src="lib/angular.min.js"></script>
-    <script src="js/app.js" charset="utf-8"></script>
-    <script src="js/controllers/futCalculatorCtrl.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
-  </body>
+</body>
 </html>
