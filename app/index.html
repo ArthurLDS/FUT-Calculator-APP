@@ -72,19 +72,19 @@
 
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid| numberFormat}} coins</span>
+                Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid| number}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Buy Now profit: <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow| numberFormat}} coins</span>
+                Buy Now profit: <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow| number}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Ea Tax Bid (5%): <span class="isLoss">{{trade.eaTaxBid| numberFormat}} coins</span>
+                Ea Tax Bid (5%): <span class="isLoss">{{trade.eaTaxBid| number}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow| numberFormat}} coins</span>
+                Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow| number}} coins</span>
               </div>
             </article>
           </article>
@@ -107,35 +107,35 @@
           <article class="panel-body" ng-show="collapseShow">
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Purchase price: <strong>{{trade.purchasePrice| numberFormat}} coins</strong>
+              Purchase price: <strong>{{trade.purchasePrice| number}} coins</strong>
             </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Sell Bid price: <strong>{{trade.sellBidPrice| numberFormat}} coins</strong>
+              Sell Bid price: <strong>{{trade.sellBidPrice| number}} coins</strong>
             </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Sell Buy now price: <strong>{{trade.sellBuyNowPrice| numberFormat}} coins</strong>
+              Sell Buy now price: <strong>{{trade.sellBuyNowPrice| number}} coins</strong>
             </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Cards solds: <strong>{{trade.numCardsSolds| numberFormat}} cards</strong>
+              Cards solds: <strong>{{trade.numCardsSolds| number}} cards</strong>
             </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid| numberFormat}} coins</span>
+              Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid| number}} coins</span>
             </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Buy Now profit: <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow | numberFormat}} coins</span>
+              Buy Now profit: <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow | number}} coins</span>
             </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Ea Tax Bid (5%): <span class="isLoss">{{trade.eaTaxBid| numberFormat}} coins</span>
+              Ea Tax Bid (5%): <span class="isLoss">{{trade.eaTaxBid| number}} coins</span>
             </div>
             <div class="info-trade">
               <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-              Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow| numberFormat}} coins</span>
+              Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow| number}} coins</span>
             </div>
             <div class="info-trade info-trade-btn">
               <button type="button" ng-click="deleteTrade(trade)" class="btn btn-danger btn-block" name="button">Delete trade</button>
