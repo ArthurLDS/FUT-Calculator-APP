@@ -6,14 +6,14 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
   $scope.calculate = function(trade){
     $scope.trade = calculateTrade(trade);
   };
-
+  
   $scope.saveTrade = function(trade){
-    
+
     if(Object.keys(trade).length <= 5)
       trade = calculateTrade(trade);
 
-    if(!trade.name)
-      trade.name = "Unnamed trade";
+    trade.name = trade.name || "Unnamed trade";
+
     $scope.$tradeList.push(trade);
     $localStorage.tradeList = $scope.$tradeList;
     $scope.trade = {};
