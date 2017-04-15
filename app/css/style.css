@@ -11,6 +11,7 @@ body {
   float: none !important;
 }
 .header-page{
+  color: #5f5f5f;
   margin-bottom: 40px;
 }
 @media (min-width: 1200px){

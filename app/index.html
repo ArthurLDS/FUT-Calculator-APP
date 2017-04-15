@@ -27,7 +27,10 @@
 
     <section ng-hide="loading">
       <header class="col-md-12 header-page centered">
-        <h2>FUT Calculator 1.0</h2>
+        <h2>
+          <i class="fa fa-calculator" aria-hidden="true"></i>
+          FUT Calculator 1.0
+        </h2>
       </header>
       <article class="col-md-6 content-calculator">
         <section class="panel panel-primary">
@@ -89,6 +92,7 @@
             </article>
           </article>
         </section>
+        {{trade}}
       </article>
       <article class="col-md-6">
         <div ng-if="tradeList.length<=0" class="alert alert-info">

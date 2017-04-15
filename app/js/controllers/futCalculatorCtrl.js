@@ -1,4 +1,5 @@
 angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($scope, $localStorage){
+
   $scope.collapseShow = false;
   $scope.trade = {};
   $scope.$tradeList = $localStorage.tradeList ? $localStorage.tradeList : [];
@@ -6,7 +7,7 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
   $scope.calculate = function(trade){
     $scope.trade = calculateTrade(trade);
   };
-  
+
   $scope.saveTrade = function(trade){
 
     if(Object.keys(trade).length <= 5)
@@ -19,6 +20,7 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
     $scope.trade = {};
     $scope.tradeForm.$setPristine(true);
   };
+  
 
   $scope.deleteTrade = function(trade){
     $scope.$tradeList = $scope.$tradeList.filter(t => t!=trade);
@@ -30,18 +32,18 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
   };
 
   let calculateTrade = function(trade){
-     trade.profitBid = calculateProfit(trade.purchasePrice, trade.sellBidPrice) * trade.numCardsSolds;
-     trade.eaTaxBid = discont(trade.sellBidPrice, 5) * trade.numCardsSolds;
-     trade.isBidProfit = isBidProfit(trade);
+    trade.profitBid = calculateProfit(trade.purchasePrice, trade.sellBidPrice) * trade.numCardsSolds;
+    trade.eaTaxBid = discont(trade.sellBidPrice, 5) * trade.numCardsSolds;
+    trade.isBidProfit = isBidProfit(trade);
 
-     trade.profitBuyNow = calculateProfit(trade.purchasePrice, trade.sellBuyNowPrice) * trade.numCardsSolds;
-     trade.eaTaxBuyNow = discont(trade.sellBuyNowPrice, 5) * trade.numCardsSolds;
-     trade.isBuyNowProfit = isBuyNowProfit(trade);
+    trade.profitBuyNow = calculateProfit(trade.purchasePrice, trade.sellBuyNowPrice) * trade.numCardsSolds;
+    trade.eaTaxBuyNow = discont(trade.sellBuyNowPrice, 5) * trade.numCardsSolds;
+    trade.isBuyNowProfit = isBuyNowProfit(trade);
 
-     return trade;
+    return trade;
   };
 
-  let calculateProfit = function(purchasePrice, sellBidPrice){
+  var calculateProfit = function(purchasePrice, sellBidPrice){
     sellBidPrice-= discont(sellBidPrice, 5);
     return sellBidPrice - purchasePrice;
   };
