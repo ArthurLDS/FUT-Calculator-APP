@@ -20,7 +20,7 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
     $scope.trade = {};
     $scope.tradeForm.$setPristine(true);
   };
-  
+
 
   $scope.deleteTrade = function(trade){
     $scope.$tradeList = $scope.$tradeList.filter(t => t!=trade);
