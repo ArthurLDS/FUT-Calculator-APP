@@ -1,44 +1,36 @@
 describe("Calculates of Trades Tests", function(){
 
-  var tradeNotCalculated = getTradeNotCalculated();
-  var tradeCalculated = getTradeCalculated();
-
   beforeEach(function(){
     angular.mock.module("futCalculatorApp");
-
     angular.mock.inject(function($controller, $rootScope, $localStorage){
       localStorage = $localStorage;
+
       $scope = $rootScope.$new();
 
       $controller("futCalculatorCtrl", {
         $scope : $scope
       });
     });
+
+    trade = new Trade("Trade Test", 200, 250, 300, 2);
+    $scope.calculate(trade);
   });
 
   it('Should calculate bid profit of the trade with purchasePrice 200 and sell prices 250 and 300', function() {
-    $scope.calculate(tradeNotCalculated);
-    expect($scope.trade.profitBid).toEqual(tradeCalculated.profitBid);
+    expect(trade.profitBid).toEqual(74);
   });
   it('Should calculate buy now profit of the trade with purchasePrice 200 and sell prices 250 and 300', function() {
-    $scope.calculate(tradeNotCalculated);
-    expect($scope.trade.profitBuyNow).toEqual(tradeCalculated.profitBuyNow);
+    expect(trade.profitBuyNow).toEqual(170);
   });
   it('Should calculate bid EA tax  of the trade with purchasePrice 200 and sell prices 250 and 300', function() {
-    $scope.calculate(tradeNotCalculated);
-    expect($scope.trade.eaTaxBid).toEqual(tradeCalculated.eaTaxBid);
+    expect(trade.eaTaxBid).toEqual(26);
   });
   it('Should calculate buy now EA tax  of the trade with purchasePrice 200 and sell prices 250 and 300', function() {
-    $scope.calculate(tradeNotCalculated);
-    expect($scope.trade.eaTaxBuyNow).toEqual(tradeCalculated.eaTaxBuyNow);
+    expect(trade.eaTaxBuyNow).toEqual(30);
   });
 });
 
 describe("Crud of trades Tests", function(){
-  var tradeCalculated = getTradeCalculated();
-  var tradeNotCalculated = getTradeNotCalculated();
-  var tradeList = getTradeList();
-
   beforeEach(function(){
     angular.mock.module("futCalculatorApp");
     angular.mock.inject(function($controller, $rootScope){
@@ -48,32 +40,36 @@ describe("Crud of trades Tests", function(){
       $scope.tradeForm.$setPristine = function(){};
       $scope.$tradeList = [];
     });
+
+    tradeSample = new Trade("Trade mitico", 200, 250, 300, 2);
+    $scope.calculate(trade);
+    tradeListSample = getTradeList(tradeSample);
   });
 
   it("Should save a trade in tradeList", function(){
       let localStorage;
-      angular.mock.inject(function($controller, $rootScope, $localStorage){
+      angular.mock.inject(function($localStorage){
           localStorage = $localStorage;
       });
-      $scope.saveTrade(tradeCalculated);
-      expect($scope.$tradeList).toEqual(tradeList);
-      expect(localStorage.tradeList).toEqual(tradeList);
+      $scope.saveTrade(tradeSample);
+      expect($scope.$tradeList).toEqual(tradeListSample);
+      expect(localStorage.tradeList).toEqual(tradeListSample);
   });
   it("Should delete a trade in tradeList", function(){
       let localStorage;
-      angular.mock.inject(function($controller, $rootScope, $localStorage){
+      angular.mock.inject(function($localStorage){
           localStorage = $localStorage;
       });
-      $scope.deleteTrade(tradeCalculated);
+      $scope.deleteTrade(tradeSample);
       expect($scope.$tradeList).toEqual([]);
       expect(localStorage.tradeList).toEqual([]);
   });
   it("Shouldn't save a trade with incompletes properties", function(){
-      $scope.trade = new Trade("Test trade", 200, 400, 450, 2);
-      $scope.saveTrade($scope.trade);
+      let trade = new Trade("Test trade", 200, 250, 300, 2);
+      $scope.saveTrade(trade);
       expect($scope.trade).toEqual({});
   });
-  it("Should put default name for unnamed trades", function(){
+  it("Should put default name for unnamed trade", function(){
       let trade = new Trade("", 200, 400, 450, 2);
       $scope.trade = trade;
       $scope.calculate($scope.trade);
@@ -95,10 +91,8 @@ function getTradeNotCalculated(name){
 }
 
 function getTradeCalculated(){
-  return {"name":"Trade mitico","purchasePrice":200,"sellBidPrice":250,"sellBuyNowPrice":300,"numCardsSolds":2,"profitBid":74,"eaTaxBid":26,"isBidProfit":true,"profitBuyNow":170,"eaTaxBuyNow":30,"isBuyNowProfit":true}
+  return new Trade("Trade mitico", 200, 250, 300, 2, 74, 26, true, 170, 30, true);
 }
-function getTradeList(){
-  return [
-    {"name":"Trade mitico","purchasePrice":200,"sellBidPrice":250,"sellBuyNowPrice":300,"numCardsSolds":2,"profitBid":74,"eaTaxBid":26,"isBidProfit":true,"profitBuyNow":170,"eaTaxBuyNow":30,"isBuyNowProfit":true}
-  ];
+function getTradeList(trade){
+  return new Array(trade);
 };
