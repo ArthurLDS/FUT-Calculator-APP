@@ -3,7 +3,6 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
   $scope.collapseShow = false;
   $scope.trade = {};
   $scope.$tradeList = $localStorage.tradeList ? $localStorage.tradeList : [];
-
   $scope.calculate = function(trade){
     $scope.trade = calculateTrade(trade);
   };
@@ -21,7 +20,6 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
     $scope.tradeForm.$setPristine(true);
   };
 
-
   $scope.deleteTrade = function(trade){
     $scope.$tradeList = $scope.$tradeList.filter(t => t!=trade);
     $localStorage.tradeList = $scope.$tradeList;
@@ -29,6 +27,11 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
 
   $scope.isEmptyObject = function(obj){
     return Object.keys(obj).length === 0;
+  };
+
+  $scope.clearTradeForm = function(){
+    $scope.tradeForm.$setPristine(true);
+    $scope.trade = {};
   };
 
   let calculateTrade = function(trade){
