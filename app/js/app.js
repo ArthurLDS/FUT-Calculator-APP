@@ -1,1 +1,1 @@
-angular.module("futCalculatorApp", ["ngStorage"]);
+angular.module("futCalculatorApp", ["ngStorage", "ngAnimate"]);
