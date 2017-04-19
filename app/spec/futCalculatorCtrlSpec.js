@@ -6,7 +6,6 @@ describe("Calculates of Trades Tests", function(){
       localStorage = $localStorage;
 
       $scope = $rootScope.$new();
-
       $controller("futCalculatorCtrl", {
         $scope : $scope
       });
@@ -35,6 +34,7 @@ describe("Crud of trades Tests", function(){
     angular.mock.module("futCalculatorApp");
     angular.mock.inject(function($controller, $rootScope){
       $scope = $rootScope.$new();
+
       $controller("futCalculatorCtrl", {$scope : $scope});
       $scope.tradeForm = {};
       $scope.tradeForm.$setPristine = function(){};
