@@ -1,6 +1,15 @@
+/* Basic Show-Hode Animation */
 .animation-show-hide {
-  transition: all linear 0.5s;
+  transition: all linear 0.19s;
 }
 .animation-show-hide.ng-hide {
   opacity: 0;
+}
+
+/* Collapse Bar Show-Hide animation */
+.animation-collapse-show-hide {
+  transition: all linear 0.5s;
+}
+.animation-collapse-show-hide.ng-hide {
+  height: 0;
 }

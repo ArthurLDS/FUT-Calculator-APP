@@ -67,7 +67,7 @@
                 </button>
               </div>
             </form>
-            <article ng-if="tradeForm.$invalid && tradeForm.$dirty" class="alert alert-danger">
+            <article ng-show="tradeForm.$invalid && tradeForm.$dirty" class="animation-show-hide alert alert-danger">
               <i class="fa fa-info-circle"></i>
               There Are blank fields! Please fill them.
             </article>
@@ -109,7 +109,7 @@
                 <i ng-if="collapseShow" class="fa fa-window-minimize" aria-hidden="true"></i>
               </span>
             </header>
-            <article class="panel-body" ng-show="collapseShow">
+            <article class="panel-body animation-show-hide" ng-show="collapseShow">
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
                 Purchase price: <strong>{{trade.purchasePrice| number}} coins</strong>
@@ -143,7 +143,10 @@
                 Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow| number}} coins</span>
               </div>
               <div class="info-trade info-trade-btn">
-                <button type="button" ng-click="deleteTrade(trade)" class="btn btn-danger btn-block" name="button">Delete trade</button>
+                <button type="button" ng-click="deleteTrade(trade)" class="btn btn-danger btn-block" name="button">
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  Delete trade
+                </button>
               </div>
 
             </article>
