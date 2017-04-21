@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animation.css">
+  <!-- Alertify Lib Style -->
+  <link rel="stylesheet" href="lib/alertifyjs/css/theme/semantic.min.css"/>
+  <link rel="stylesheet" href="lib/alertifyjs/css/alertify.min.css"/>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -18,6 +21,9 @@
   <script src="js/filters/numberFormat.js" charset="utf-8"></script>
   <script src="js/config/interceptorsConfig.js" charset="utf-8"></script>
   <script src="js/interceptors/loadingInterceptor.js" charset="utf-8"></script>
+  <!-- Alertify Lib JavaScript -->
+  <script src="lib/alertifyjs/alertify.min.js"></script>
+
 </head>
 <body ng-controller="futCalculatorCtrl">
   <section class="container container-small">
@@ -69,10 +75,10 @@
             </form>
             <article ng-show="tradeForm.$invalid && tradeForm.$dirty" class="animation-show-hide alert alert-danger">
               <i class="fa fa-info-circle"></i>
-              There Are blank fields! Please fill them.
+              There are blank fields! Please fill them.
             </article>
 
-            <article ng-show="trade.profitBid || trade.profitBuyNow" class="animation-show-hide animation-show-hide.ng-ride">
+            <article ng-show="trade.profitBid || trade.profitBuyNow" class="animation-show-hide">
 
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
@@ -99,17 +105,22 @@
           <i class="fa fa-info-circle" aria-hidden="true"></i>
           No trades saved now.
         </div>
-        <div class="animation-show-hide">
-          <article ng-hide="$tradeList.length<=0" class="panel panel-primary panel-saved-trade" ng-repeat="trade in $tradeList">
+        <div class="animation-show-hide" ng-hide="$tradeList.length<=0">
+          <form class="" action="index.html" method="post">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search your trades here" ng-model="searchTradeFilter"/>
+            </div>
+          </form>
+          <article  class="panel panel-primary panel-saved-trade animation-repeat" ng-repeat="trade in $tradeList | filter:searchTradeFilter">
             <header class="panel-heading cursor-pointer" ng-click="collapseShow = !collapseShow">
-              <i class="fa fa-money money-icon" aria-hidden="true"></i>
+              <i class="fa fa-circle profitStatusIcon" ng-class="{isProfitTradeIcon : trade.isBuyNowProfit && trade.isBidProfit, isNotProfitTradeIcon : !trade.isBuyNowProfit && !trade.isBidProfit}" aria-hidden="true"></i>
               {{trade.name}}
               <span class="pull-right">
-                <i ng-if="!collapseShow" class="fa fa-plus" aria-hidden="true"></i>
-                <i ng-if="collapseShow" class="fa fa-window-minimize" aria-hidden="true"></i>
+                <i ng-if="!collapseShow" class="fa fa-plus-square" aria-hidden="true"></i>
+                <i ng-if="collapseShow" class="fa fa-minus-square" aria-hidden="true"></i>
               </span>
             </header>
-            <article class="panel-body animation-show-hide" ng-show="collapseShow">
+            <article class="panel-body animation-show-hide panel-body-saveds-trades" ng-show="collapseShow">
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
                 Purchase price: <strong>{{trade.purchasePrice| number}} coins</strong>
