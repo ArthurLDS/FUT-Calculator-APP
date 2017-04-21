@@ -9,8 +9,10 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
 
   $scope.saveTrade = function(trade){
 
-    if(Object.keys(trade).length <= 5)
+    if(Object.keys(trade).length <= 5){
       trade = calculateTrade(trade);
+      return;
+    }
 
     trade.name = trade.name || "Unnamed trade";
 
@@ -18,11 +20,14 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
     $localStorage.tradeList = $scope.$tradeList;
     $scope.trade = {};
     $scope.tradeForm.$setPristine(true);
+    $scope.searchTradeFilter = "";
+    alertify.success(`${trade.name} saved successfully!`);
   };
 
   $scope.deleteTrade = function(trade){
     $scope.$tradeList = $scope.$tradeList.filter(t => t!=trade);
     $localStorage.tradeList = $scope.$tradeList;
+    alertify.success(`${trade.name} Deleted successfully!`);
   };
 
   $scope.isEmptyObject = function(obj){
