@@ -1,15 +1,23 @@
-/* Basic Show-Hode Animation */
-.animation-show-hide {
-  transition: all linear 0.19s;
+/* Ng-repeat Animation*/
+.animation-repeat.ng-enter{
+  transition: all linear 0.3s;
+  opacity: 0;
 }
-.animation-show-hide.ng-hide {
+.animation-repeat.ng-enter-active{
+  opacity: 1;
+}
+.animation-repeat.ng-leave {
+  transition: all linear 0.3s;
+  opacity: 1;
+}
+.animation-repeat.ng-leave-active {
   opacity: 0;
 }
 
-/* Collapse Bar Show-Hide animation */
-.animation-collapse-show-hide {
-  transition: all linear 0.5s;
+/* Basic Show-Hode Animation */
+.animation-show-hide {
+  transition: all linear 0.3s;
 }
-.animation-collapse-show-hide.ng-hide {
-  height: 0;
+.animation-show-hide.ng-hide {
+  opacity: 0;
 }
