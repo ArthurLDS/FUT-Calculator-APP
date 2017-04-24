@@ -1,8 +1,8 @@
 describe("Calculates of Trades Tests", function(){
-
   beforeEach(function(){
     angular.mock.module("futCalculatorApp");
-    angular.mock.inject(function($controller, $rootScope, $localStorage){
+    angular.mock.inject(function($controller, $rootScope, $localStorage, $animate){
+      animate = $animate;
       localStorage = $localStorage;
 
       $scope = $rootScope.$new();
@@ -16,6 +16,7 @@ describe("Calculates of Trades Tests", function(){
   });
 
   it('Should calculate bid profit of the trade with purchasePrice 200 and sell prices 250 and 300', function() {
+    console.log(trade);
     expect(trade.profitBid).toEqual(74);
   });
   it('Should calculate buy now profit of the trade with purchasePrice 200 and sell prices 250 and 300', function() {
