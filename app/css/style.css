@@ -1,9 +1,9 @@
 body {
-    background-color: #fbfbfb;
-    background-image: url(https://braziljs.org/styles/images/bg02.png), url(https://braziljs.org/styles/images/bg03.png), url(https://braziljs.org/styles/images/bg01.png);
-    background-position: top left,	bottom left,	top left;
-    background-size: 100% 6em,	0% 6em,	auto;
-    background-repeat: no-repeat,	no-repeat, repeat;
+  background-color: #fbfbfb;
+  background-image: url(https://braziljs.org/styles/images/bg02.png), url(https://braziljs.org/styles/images/bg03.png), url(https://braziljs.org/styles/images/bg01.png);
+  background-position: top left,	bottom left,	top left;
+  background-size: 100% 6em,	0% 6em,	auto;
+  background-repeat: no-repeat,	no-repeat, repeat;
 }
 .centered{
   margin-left: auto;
@@ -13,8 +13,13 @@ body {
 
 .header-page{
   color: #5f5f5f;
-  margin-bottom: 40px;
+  font-size: 28pt;
+  margin: 20px 0 40px 0;
 }
+.header-page img{
+  width: 70px;
+}
+
 @media (min-width: 1200px){
   .container-small{
     width: 800px;
@@ -45,7 +50,33 @@ body {
 .link-none:hover{
   color: #DDD;
 }
-
+/* Footer */
+.page-footer{
+  position: relative;
+  color: #888;
+  text-align: center;
+  background: #121214;
+  border-top: 3px solid #55cca2;
+  margin-top: 70px;
+  padding: 25px 40px 25px 40px;
+}
+.page-footer h2{
+  color: #AAA;
+}
+.header-footer{
+  color: #BBB;
+  font-size: 25pt;
+}
+.social-footer{
+  font-size: 16pt;
+}
+.header-footer img{
+  width: 60px;
+}
+.information-footer {
+  font-size: 13px;
+  margin: 30px 0 0 0;
+}
 /* Trade informations */
 .profitStatusIcon{
   text-shadow: 0px 0px 10px #b1b1b1;
