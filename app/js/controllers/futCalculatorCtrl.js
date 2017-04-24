@@ -9,10 +9,8 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
 
   $scope.saveTrade = function(trade){
 
-    if(Object.keys(trade).length <= 5){
+    if(Object.keys(trade).length <= 5)
       trade = calculateTrade(trade);
-      return;
-    }
 
     trade.name = trade.name || "Unnamed trade";
 
