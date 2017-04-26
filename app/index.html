@@ -2,6 +2,7 @@
 <html ng-app="futCalculatorApp">
 <head>
   <meta charset="utf-8">
+  <link rel="shortcut icon" type="image/png" href="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw"/>
   <title>FUT Calculator</title>
   <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -28,14 +29,12 @@
 <body ng-controller="futCalculatorCtrl">
   <section class="container container-small">
 
-    <article ng-show="loading" class="">
-      <h1>Carregando...</h1>
-    </article>
+    <a href="https://github.com/ArthurLDS/FUT-Calculator-APP" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
 
     <section ng-hide="loading">
       <header class="col-md-12 header-page centered">
-          <img src="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw" alt="FUT Calculator Logo">
-          FUT Calculator 1.0
+        <img src="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw" alt="FUT Calculator Logo">
+        FUT Calculator 1.0
       </header>
       <article class="col-md-6 content-calculator">
         <section class="panel panel-primary">
@@ -165,17 +164,76 @@
     </section>
   </section>
 
-  <footer class="page-footer">
-    <a href="https://github.com/ArthurLDS/FUT-Calculator-APP" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
-    <div class="header-footer">
-      <img src="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw" alt="">
-      FUT Calculator 1.0
-    </div>
-    <div class="information-footer">
-      <div class="social-footer">
-        <img src="http://www.iconsplace.com/download/white-github-24.png" alt="">
-        <img src="http://icons.iconarchive.com/icons/dakirby309/simply-styled/24/Google-Play-Store-alt-icon.png" alt="">
+  <footer >
+    <section class="page-footer">
+      <a href="https://github.com/ArthurLDS/FUT-Calculator-APP" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+      <div class="header-footer">
+        <img src="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw" alt="">
+        FUT Calculator 1.0
       </div>
+      <div class="information-footer">
+        <div class="social-footer">
+
+          <div class="">
+            <a target="_blank" href="https://play.google.com/store/apps/details?id=com.calc.arthurlds73showshow.eataxcalculator&hl=pt_BR">
+              <img src="http://icons.iconarchive.com/icons/dakirby309/simply-styled/24/Google-Play-Store-alt-icon.png" alt="">
+              Download the APP on Play Store
+            </a>
+          </div>
+          <div class="">
+            <a target="_blank" href="https://github.com/ArthurLDS/FUT-Calculator-APP">
+              <img src="https://www.iconfinder.com/icons/1156638/download/png/24" alt=""/>
+              Collaborate with us on GitHub
+            </a>
+          </div>
+        </div>
+
+        <a href="" class="seg-link" data-toggle="modal" data-target="#aboutDeveloper">
+          <i class="fa fa-info-circle"></i>
+          About the Developer
+        </a>
+        <!-- Modal -->
+        <div id="aboutDeveloper" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+
+              <div class="modal-body">
+
+                <div class="about-dev-header">
+                  <img class="img-dev"src="https://pbs.twimg.com/profile_images/856901217632563200/GnSlqxrT.jpg" alt="developer-img">
+                  <div class="name-dev">
+                    <h4 class="">Arthur Lima de Souza</h4>
+                  </div>
+                </div>
+                <div class="about-dev-body">
+                  <p>Estudante de Sistemas de Informação pela FACCAT em Taquara no Rio Grande do Sul, Arthur é um amante de tecnologia e almeja ganhar reconhecimento com seu trabahlo.</p>
+
+                  <div class="social-content">
+                    <h5 class="title-games"><b>Contact me</b></h5>
+                    <b>E-mail:</b> arthurlds73@gmail.com <br>
+
+                    <div class="social-icons-28">
+                      <a target="_blank" href="https://github.com/ArthurLDS"><i class="fa fa-github github-icon"></i></a>
+                      <a target="_blank" href="https://www.facebook.com/arthur.l.ds"><i class="fa fa-facebook-square facebook-icon"></i></a>
+                      <a target="_blank" href="https://twitter.com/ArthurL90565439"><i class="fa fa-twitter-square twitter-icon"></i></a>
+                      <a target="_blank" href="https://www.linkedin.com/in/arthur-lima-de-souza-344757111/"><i class="fa fa-linkedin-square linkedin-icon"></i></a>
+                      <a target="_blank" href="https://play.google.com/store/apps/dev?id=5008262250105376696"><img style="margin-bottom: 5px;"src="http://icons.iconarchive.com/icons/dakirby309/simply-styled/24/Google-Play-Store-alt-icon.png" alt=""></a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="modal-footer about-dev-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="copy-footer">
       <p>&copy; FUT Calculator - Developed by Arthur Lima de Souza</p>
     </div>
   </footer>
