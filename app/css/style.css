@@ -5,6 +5,9 @@ body {
   background-size: 100% 6em,	0% 6em,	auto;
   background-repeat: no-repeat,	no-repeat, repeat;
 }
+.seg-link{
+  color: #959595 !important;
+}
 .centered{
   margin-left: auto;
   margin-right: auto;
@@ -58,7 +61,13 @@ body {
   background: #121214;
   border-top: 3px solid #55cca2;
   margin-top: 70px;
-  padding: 25px 40px 25px 40px;
+  padding: 25px 40px 15px 40px;
+}
+.page-footer a{
+  color: #fffdfd;
+}
+.page-footer a:hover{
+  color: #a4a4a4;
 }
 .page-footer h2{
   color: #AAA;
@@ -68,7 +77,19 @@ body {
   font-size: 25pt;
 }
 .social-footer{
-  font-size: 16pt;
+  font-size: 11pt;
+  margin-bottom: 20px;
+}
+.social-footer div{
+  margin-top: 5px;
+}
+.copy-footer{
+  color: #959595;
+  padding: 15px;
+  height: 51px;
+  width: 100%;
+  background-color: #000;
+  text-align: center;
 }
 .header-footer img{
   width: 60px;
@@ -114,4 +135,54 @@ body {
 }
 .panel-saved-trade{
   margin-bottom: 4px;
+}
+/* About the Developer */
+.about-dev-header{
+  height: 140px;
+  padding: 10px;
+  background-position: 0px -211px;
+  border-radius: 3px;
+  background-image: url(https://scontent.fpoa12-1.fna.fbcdn.net/v/t1.0-9/15578666_1302103556514343_6474261687287703631_n.jpg?oh=bda745ca731525a45bc60a982615f507&oe=5992F44B);
+}
+.img-dev{
+  border: solid 3px #cecece;
+  border-radius: 50%;
+  background-size: 40%;
+  width: 140px;
+  box-shadow: 1px 1px 10px #666;
+}
+.about-dev-body{
+  text-align: left;
+  margin-top: 60px;
+}
+.about-dev-body a{
+  opacity: .7;
+}
+.about-dev-body a:hover{
+  opacity: 1;
+}
+.social-content{
+  text-align: center;
+}
+.about-dev-footer{
+  padding-top: 0;
+}
+/*Social Style*/
+.social-icons-24 {
+  font-size: 24px;
+}
+.social-icons-28 {
+  font-size: 28px;
+}
+.github-icon{
+  color: #000;
+}
+.facebook-icon{
+  color: #3b5998;
+}
+.linkedin-icon{
+  color: #007ab9;
+}
+.twitter-icon{
+  color: #1da1f2;
 }
