@@ -10,6 +10,7 @@
 - Saving trades in LocalStorage
 - Easy trade search.
 - EA TAX (5%) discount per trade.
+- Totally in client-side.
 - 100% JavaScript.
 
 ## Frameworks, libs and tools used
@@ -19,10 +20,10 @@
 - [AlertifyJS](http://alertifyjs.com/) v1.10.0
 
 ## Trade panel example:
-![FUT Calculator img](http://i.imgur.com/LVOmUjy.png)
+![FUT Calculator img](http://i.imgur.com/zvbbaRx.png)
 
 ## Autor
-Arthur Lima de Souza
+Arthur Lima de Souza </br>
 contact: arthurlds73@gmail.com
 
 </br>
