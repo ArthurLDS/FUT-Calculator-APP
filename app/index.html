@@ -105,7 +105,7 @@
         <div class="animation-show-hide" ng-hide="$tradeList.length<=0">
           <form class="" action="index.html" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search your trades here" ng-model="searchTradeFilter"/>
+              <input type="text" class="form-control" placeholder="Search your saved trades here" ng-model="searchTradeFilter"/>
             </div>
           </form>
           <article  class="panel panel-primary panel-saved-trade animation-repeat" ng-repeat="trade in $tradeList | filter:searchTradeFilter">
