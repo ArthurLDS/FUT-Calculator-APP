@@ -1,7 +1,4 @@
-<center>
-<img src="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw" width="150"/>
 <h1>FUT Calculator - Tools for Trades</h1>
-</center>
 
  The FUT Calculator was created  to help players of FIFA Ultimate Team  to calculate your profits and losses on Transfer Market easily and quickly. This one is the WEB version of the [Calculadora FUT](https://play.google.com/store/apps/details?id=com.calc.arthurlds73showshow.eataxcalculator&hl=pt_BR) APP on Play Store. FUT Calculator was written 100% in JavaScript and works totally on client side.
 
