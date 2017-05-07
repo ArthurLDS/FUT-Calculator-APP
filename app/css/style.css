@@ -171,11 +171,20 @@ body {
 .social-icons-24 {
   font-size: 24px;
 }
+.social-icons-22 {
+  font-size: 22px;
+}
 .social-icons-28 {
   font-size: 28px;
 }
 .github-icon{
   color: #000;
+}
+.github-icon-purble{
+  color: #5157bc;
+}
+.androud-icon{
+  color: #77c159;
 }
 .facebook-icon{
   color: #3b5998;
