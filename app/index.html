@@ -16,27 +16,66 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="lib/angular.min.js"></script>
   <script src="lib/angular-animate.min.js" charset="utf-8"></script>
+  <script src="lib/angular-translate.min.js" charset="utf-8"></script>
   <script src="js/app.js" charset="utf-8"></script>
   <script src="js/controllers/futCalculatorCtrl.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
   <script src="js/filters/numberFormat.js" charset="utf-8"></script>
   <script src="js/config/interceptorsConfig.js" charset="utf-8"></script>
+  <script src="js/config/translateConfig.js" charset="utf-8"></script>
   <script src="js/interceptors/loadingInterceptor.js" charset="utf-8"></script>
   <!-- Alertify Lib JavaScript -->
   <script src="lib/alertifyjs/alertify.min.js"></script>
 
 </head>
 <body ng-controller="futCalculatorCtrl">
+
+  <!--<nav ng-include="'view/navbar.html'"></nav>-->
+  <nav class="navbar navbar-inverse navbar-main">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <img src="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw" class="fut-calculator-app fut-calculator-app-small" alt="">
+          FUT Calculator
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="" data-toggle="modal" data-target="#aboutDeveloper"><i class="fa fa-user"></i> About the developer</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-info-circle"></i> About the App</a>
+          </li>
+          <li><a href="" class="language-content" ng-click="changeLanguage('pt')"><img src="https://www.iconfinder.com/icons/91993/download/png/24" alt=""></a></li>
+          <li><a href="" class="language-content" ng-click="changeLanguage('en')"><img src="https://www.iconfinder.com/icons/16014/download/png/24" alt=""></a></li>
+
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
   <section class="container container-small">
 
-    <a href="https://github.com/ArthurLDS/FUT-Calculator-APP" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
-
     <section ng-hide="loading">
-      <header class="col-md-12 header-page centered">
+
+      <!---<header class="col-md-12 header-page centered">
         <img src="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw" alt="FUT Calculator Logo">
         FUT Calculator 1.0
-      </header>
-      <article class="col-md-6 col-xs-12 content-calculator">
+      </header>-->
+      <article class="col-md-6 col-xs-12 content-calculator" ng-class="{centered : $tradeList.length<=0}">
         <section class="panel panel-primary">
           <header class="panel-heading">
             <div class="inline-block">
@@ -47,26 +86,26 @@
           <article class="panel-body">
             <form class="" name="tradeForm" action="index.html" method="post">
               <div class="form-group">
-                <input type="text" class="form-control" ng-model="trade.name" placeholder="Trade Name">
+                <input type="text" class="form-control" ng-model="trade.name" translate="TRADE_NAME" placeholder="{{'TRADE_NAME' | translate}}">
               </div>
               <div class="form-group">
-                <input type="number" class="form-control" ng-model="trade.purchasePrice" placeholder="Purchase price" ng-required="true">
+                <input type="number" class="form-control" ng-model="trade.purchasePrice" placeholder="{{'PURCHASE_PRICE' | translate}}" ng-required="true">
               </div>
               <div class="form-group">
-                <input type="number" class="form-control" ng-model="trade.sellBidPrice" placeholder="Sell Bid Price" ng-required="true">
+                <input type="number" class="form-control" ng-model="trade.sellBidPrice" placeholder="{{'SELL_BID_PRICE' | translate}}" ng-required="true">
               </div>
               <div class="form-group">
-                <input type="number" class="form-control" ng-model="trade.sellBuyNowPrice" placeholder="Sell Buy now Price" ng-required="true">
+                <input type="number" class="form-control" ng-model="trade.sellBuyNowPrice" placeholder="{{'SELL_BUY_NOW_PRICE' | translate}}" ng-required="true">
               </div>
               <div class="form-group">
-                <input type="number" class="form-control" ng-model="trade.numCardsSolds" placeholder="Cards solds" ng-required="true">
+                <input type="number" class="form-control" ng-model="trade.numCardsSolds" placeholder="{{'NUM_CARDS_SOLD' | translate}}" ng-required="true">
               </div>
               <div class="form-group">
-                <button type="button" ng-disabled="tradeForm.$invalid" ng-click="calculate(trade)" class="btn btn-success btn-block" name="button">Calculate</button>
-                <button type="button" ng-disabled="isEmptyObject(trade)" ng-click="clearTradeForm()" class="btn btn-danger btn-block" name="button">Clear</button>
-                <button type="button" ng-disabled="tradeForm.$invalid" ng-click="saveTrade(trade)" class="btn btn-primary btn-block">
+                <button type="button" ng-disabled="tradeForm.$invalid" ng-click="calculate(trade)" class="btn btn-success btn-block" name="button" translate="BTN_CALCULATE_TRADE">{{'BTN_CALCULATE_TRADE' | translate}}</button>
+                <button type="button" ng-disabled="isEmptyObject(trade)" ng-click="clearTradeForm()" class="btn btn-danger btn-block" name="button" translate="BTN_CLEAR_TRADE">{{'BTN_CLEAR_TRADE' | translate}}</button>
+                <button type="button" ng-disabled="tradeForm.$invalid" ng-click="saveTrade(trade)" class="btn btn-primary btn-block" >
                   <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                  Save trade
+                  <span translate="BTN_SAVE_TRADE">{{'BTN_SAVE_TRADE' | translate}}</span>
                 </button>
               </div>
             </form>
@@ -97,20 +136,16 @@
           </article>
         </section>
       </article>
-      <article class="col-md-6 col-xs-12">
-        <div ng-show="$tradeList.length<=0" class="alert alert-info animation-show-hide">
-          <i class="fa fa-info-circle" aria-hidden="true"></i>
-          No trades saved now.
-        </div>
-        <div class="animation-show-hide" ng-hide="$tradeList.length<=0">
+      <article class="col-md-6 col-xs-12 animation-show-hide" ng-show="$tradeList.length>0">
+        <div class="animation-show-hide" ng-show="$tradeList.length>0">
           <form class="" action="index.html" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search your saved trades here" ng-model="searchTradeFilter"/>
+              <input type="text" class="form-control" translate="SEARCH_SAVED_TRADES" placeholder="{{'SEARCH_SAVED_TRADES' | translate}}" ng-model="searchTradeFilter"/>
             </div>
           </form>
           <article  class="panel panel-primary panel-saved-trade animation-repeat" ng-repeat="trade in $tradeList | filter:searchTradeFilter">
             <header class="panel-heading cursor-pointer" ng-click="collapseShow = !collapseShow">
-              <i class="fa fa-circle profitStatusIcon" ng-class="{isProfitTradeIcon : trade.isBuyNowProfit && trade.isBidProfit, isNotProfitTradeIcon : !trade.isBuyNowProfit && !trade.isBidProfit}" aria-hidden="true"></i>
+              <i class="fa fa-circle profitStatusIcon" ng-class="{isProfitTradeIcon : isTradeProfit(trade)===1, isSomeProfitTrade : isTradeProfit(trade)===2, isNotProfitTradeIcon : isTradeProfit(trade)===3}" aria-hidden="true"></i>
               {{trade.name}}
               <span class="pull-right">
                 <i ng-if="!collapseShow" class="fa fa-plus-square" aria-hidden="true"></i>
@@ -169,7 +204,7 @@
       <a href="https://github.com/ArthurLDS/FUT-Calculator-APP" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
       <div class="header-footer">
         <img src="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw" alt="">
-        FUT Calculator 1.0
+        FUT Calculator
       </div>
       <div class="information-footer">
         <div class="social-footer">

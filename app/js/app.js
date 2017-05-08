@@ -1,1 +1,1 @@
-angular.module("futCalculatorApp", ["ngStorage", "ngAnimate"]);
+angular.module("futCalculatorApp", ["ngStorage", "ngAnimate", "pascalprecht.translate"]);
