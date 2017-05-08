@@ -1,4 +1,4 @@
-angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($scope, $localStorage){
+angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($scope, $localStorage, $translate){
 
   $scope.collapseShow = false;
   $scope.trade = {};
@@ -36,6 +36,19 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
     $scope.tradeForm.$setPristine(true);
     $scope.trade = {};
   };
+
+  $scope.changeLanguage = function(langKey){
+    $translate.use(langKey);
+  };
+
+  $scope.isTradeProfit = function(trade){
+    if(trade.isBuyNowProfit && trade.isBidProfit)
+      return 1;
+    else if(trade.isBuyNowProfit || trade.isBidProfit)
+      return 2;
+    else
+      return 3;
+  }
 
   let calculateTrade = function(trade){
     trade.profitBid = calculateProfit(trade.purchasePrice, trade.sellBidPrice) * trade.numCardsSolds;
