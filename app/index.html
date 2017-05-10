@@ -2,6 +2,7 @@
 <html ng-app="futCalculatorApp">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/png" href="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw"/>
   <title>FUT Calculator</title>
   <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
@@ -11,6 +12,8 @@
   <!-- Alertify Lib Style -->
   <link rel="stylesheet" href="lib/alertifyjs/css/theme/semantic.min.css"/>
   <link rel="stylesheet" href="lib/alertifyjs/css/alertify.min.css"/>
+  <!-- GitHub Button -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -31,7 +34,7 @@
 <body ng-controller="futCalculatorCtrl">
 
   <!--<nav ng-include="'view/navbar.html'"></nav>-->
-  <nav class="navbar navbar-inverse navbar-main">
+  <nav class="navbar navbar-main navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -43,24 +46,38 @@
         </button>
         <a class="navbar-brand" href="#">
           <img src="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw" class="fut-calculator-app fut-calculator-app-small" alt="">
-          FUT Calculator
+          <span class="navbar-brand-title">FUT Calculator</span>
         </a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-
+          <li>
+            <a href="https://play.google.com/store/apps/details?id=com.calc.arthurlds73showshow.eataxcalculator" target="_blank">
+              <i class="fa fa-android androud-icon"></i>
+              <span>{{'DOWNLOAD_PLAY_STORE'| translate}}</span>
+            </a>
+          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+
           <li>
-            <a href="" data-toggle="modal" data-target="#aboutDeveloper"><i class="fa fa-user"></i> About the developer</a>
+            <a href="" data-toggle="modal" data-target="#aboutDeveloper"><i class="fa fa-user"></i>
+              <span trasnlate="ABOUT_DEVELOPER">{{'ABOUT_DEVELOPER'| translate}}</span>
+            </a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-info-circle"></i> About the App</a>
+            <a href="#" data-toggle="modal" data-target="#aboutTheApp"><i class="fa fa-info-circle"></i>
+              <span trasnlate="ABOUT_THE_APP">{{'ABOUT_THE_APP'| translate}}</span>
+            </a>
           </li>
-          <li><a href="" class="language-content" ng-click="changeLanguage('pt')"><img src="https://www.iconfinder.com/icons/91993/download/png/24" alt=""></a></li>
-          <li><a href="" class="language-content" ng-click="changeLanguage('en')"><img src="https://www.iconfinder.com/icons/16014/download/png/24" alt=""></a></li>
+
+          <li><a href="" ng-click="changeLanguage('pt')" class="visible-xs-block"><img src="imgs/countryFlags/Flag_Brazil.png" alt=""></a></li>
+          <li><a href="" ng-click="changeLanguage('en')" class="visible-xs-block"><img src="imgs/countryFlags/Flag_United_Kingdom.png" alt=""></a></li>
+
+          <li><a href="" class="language-content visible-lg-block visible-sm-block visible-md-block" ng-click="changeLanguage('pt')"><img src="imgs/countryFlags/Flag_Brazil.png" alt=""></a></li>
+          <li><a href="" class="language-content visible-lg-block visible-sm-block visible-md-block" ng-click="changeLanguage('en')"><img src="imgs/countryFlags/Flag_United_Kingdom.png" alt=""></a></li>
 
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -70,17 +87,12 @@
   <section class="container container-small">
 
     <section ng-hide="loading">
-
-      <!---<header class="col-md-12 header-page centered">
-        <img src="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw" alt="FUT Calculator Logo">
-        FUT Calculator 1.0
-      </header>-->
       <article class="col-md-6 col-xs-12 content-calculator" ng-class="{centered : $tradeList.length<=0}">
         <section class="panel panel-primary">
           <header class="panel-heading">
             <div class="inline-block">
               <i class="fa fa-calculator" aria-hidden="true"></i>
-              Trade panel
+              <span translate="TRADE_PANEL">{{'TRADE_PANEL'| translate}}</span>
             </div>
           </header>
           <article class="panel-body">
@@ -118,19 +130,23 @@
 
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid| number}} coins</span>
+                <span translate="BID_PROFIT">{{'BID_PROFIT'|translate}}</span>:
+                <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid| number}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Buy Now profit: <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow| number}} coins</span>
+                <span transtale="BUY_NOW_PROFIT">{{'BUY_NOW_PROFIT' | translate}}</span>:
+                <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow | number}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Ea Tax Bid (5%): <span class="isLoss">{{trade.eaTaxBid| number}} coins</span>
+                <span translate="EA_TAX_BID">{{'EA_TAX_BID'| translate}}</span> (5%):
+                <span class="isLoss">{{trade.eaTaxBid| number}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow| number}} coins</span>
+                <span translate="EA_TAX_BUY_NOW">{{'EA_TAX_BUY_NOW'| translate}}</span> (5%):
+                <span class="isLoss">{{trade.eaTaxBuyNow| number}} coins</span>
               </div>
             </article>
           </article>
@@ -140,7 +156,7 @@
         <div class="animation-show-hide" ng-show="$tradeList.length>0">
           <form class="" action="index.html" method="post">
             <div class="form-group">
-              <input type="text" class="form-control" translate="SEARCH_SAVED_TRADES" placeholder="{{'SEARCH_SAVED_TRADES' | translate}}" ng-model="searchTradeFilter"/>
+              <input type="text" class="form-control" placeholder="{{'SEARCH_SAVED_TRADES' | translate}}" ng-model="searchTradeFilter"/>
             </div>
           </form>
           <article  class="panel panel-primary panel-saved-trade animation-repeat" ng-repeat="trade in $tradeList | filter:searchTradeFilter">
@@ -155,35 +171,43 @@
             <article class="panel-body animation-show-hide panel-body-saveds-trades" ng-show="collapseShow">
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Purchase price: <strong>{{trade.purchasePrice| number}} coins</strong>
+                <span translate="PURCHASE_PRICE">{{'PURCHASE_PRICE' | translate}}</span>:
+                <strong>{{trade.purchasePrice| number}} coins</strong>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Sell Bid price: <strong>{{trade.sellBidPrice| number}} coins</strong>
+                <span translate="SELL_BID_PRICE">{{'SELL_BID_PRICE'| translate}}</span>:
+                <strong>{{trade.sellBidPrice| number}} coins</strong>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Sell Buy now price: <strong>{{trade.sellBuyNowPrice| number}} coins</strong>
+                <span translate="SELL_BUY_NOW_PRICE">{{'SELL_BUY_NOW_PRICE'| translate}}</span>:
+                <strong>{{trade.sellBuyNowPrice| number}} coins</strong>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Cards solds: <strong>{{trade.numCardsSolds| number}} cards</strong>
+                <span translate="NUM_CARDS_SOLD">{{'NUM_CARDS_SOLD' | translate}}</span>:
+                <strong>{{trade.numCardsSolds| number}} card(s)</strong>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Bid profit: <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid| number}} coins</span>
+                <span translate="BID_PROFIT">{{'BID_PROFIT'|translate}}</span>:
+                <span ng-class="{isProfit : trade.isBidProfit, isLoss : !trade.isBidProfit}">{{trade.profitBid| number}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Buy Now profit: <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow | number}} coins</span>
+                <span transtale="BUY_NOW_PROFIT">{{'BUY_NOW_PROFIT' | translate}}</span>:
+                <span ng-class="{isProfit : trade.isBuyNowProfit, isLoss : !trade.isBuyNowProfit}">{{trade.profitBuyNow | number}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Ea Tax Bid (5%): <span class="isLoss">{{trade.eaTaxBid| number}} coins</span>
+                <span translate="EA_TAX_BID">{{'EA_TAX_BID'| translate}}</span> (5%):
+                <span class="isLoss">{{trade.eaTaxBid| number}} coins</span>
               </div>
               <div class="info-trade">
                 <img class="icon-coin" src="https://www.futbin.com/design/img/coins_bin.png" alt="">
-                Ea Tax Buy Now (5%): <span class="isLoss">{{trade.eaTaxBuyNow| number}} coins</span>
+                <span translate="EA_TAX_BUY_NOW">{{'EA_TAX_BUY_NOW'| translate}}</span> (5%):
+                <span class="isLoss">{{trade.eaTaxBuyNow| number}} coins</span>
               </div>
               <div class="info-trade info-trade-btn">
                 <button type="button" ng-click="deleteTrade(trade)" class="btn btn-danger btn-block" name="button">
@@ -212,20 +236,20 @@
           <div class="">
             <a target="_blank" href="https://play.google.com/store/apps/details?id=com.calc.arthurlds73showshow.eataxcalculator&hl=pt_BR">
               <i class="fa fa-android play androud-icon social-icons-22"></i>
-              Download the APP on Play Store
+              <span translate="DOWNLOAD_PLAY_STORE">{{'DOWNLOAD_PLAY_STORE' | translate}}</span>
             </a>
           </div>
           <div class="">
             <a target="_blank" href="https://github.com/ArthurLDS/FUT-Calculator-APP">
               <i class="fa fa-github github-icon-purble social-icons-22"></i>
-              Collaborate with us on GitHub
+              <span translate="COLLABORATE_GITHUB">{{'COLLABORATE_GITHUB' | translate}}</span>
             </a>
           </div>
         </div>
 
-        <a href="" class="seg-link" data-toggle="modal" data-target="#aboutDeveloper">
+        <a href="" class="seg-link" data-toggle="modal" data-target="#aboutTheApp">
           <i class="fa fa-info-circle"></i>
-          About the Developer
+          <span >{{'ABOUT_THE_APP'| translate}}</span>
         </a>
         <!-- Modal -->
         <div id="aboutDeveloper" class="modal fade" role="dialog">
@@ -266,6 +290,48 @@
             </div>
           </div>
         </div>
+
+        <div id="aboutTheApp" class="modal fade" role="dialog">
+          <div class="modal-dialog about-app">
+            <div class="modal-content">
+
+
+              <div class="modal-body">
+
+                <div class="about-app-header">
+                  <img class="img-dev"src="https://lh3.googleusercontent.com/PMPWfKqfiyJAyufAADOhV79un7VI4oxuaGRS82L_OgwEmN1jo5WgNyv-xYbgeGJoMOCZ=w300-rw" alt="developer-img">
+                  <div class="name-dev">
+                    <h4 class=""><strong>FUT Calculator - TradeTools</strong></h4>
+                  </div>
+                </div>
+                <div class="about-app-body">
+                  <p>The FUT Calculator was created to help players of FIFA Ultimate Team to calculate your profits and losses on Transfer Market easily and quickly. This one is the WEB version of the <a href="https://play.google.com/store/apps/details?id=com.calc.arthurlds73showshow.eataxcalculator">Calculadora FUT</a> APP on Play Store. The FUT Calculator is a open source project and anyone can help to improve the APP.</p>
+
+                  <div class="social-content">
+                    <div class="">
+                      <a class="github-button" href="https://github.com/ArthurLDS/FUT-Calculator-APP" data-size="large" data-show-count="true" aria-label="Star ArthurLDS/FUT-Calculator-APP on GitHub">Star</a>
+
+                      <a class="github-button" href="https://github.com/ArthurLDS/FUT-Calculator-APP/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork ArthurLDS/FUT-Calculator-APP on GitHub">Fork</a>
+
+                      <a class="github-button" href="https://github.com/ArthurLDS/FUT-Calculator-APP/subscription" data-icon="octicon-eye" data-size="large" aria-label="Watch ArthurLDS/FUT-Calculator-APP on GitHub">Watch</a>
+                    </div>
+                    <div class="">
+                      <a href="https://play.google.com/store/apps/details?id=com.calc.arthurlds73showshow.eataxcalculator">
+                        <img class="get-app-on-play-store" src="imgs/playBadges/google-play-badge-en.png" alt=""/>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
     <div class="copy-footer">
