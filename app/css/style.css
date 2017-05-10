@@ -23,11 +23,14 @@ body {
   border-radius: 0;
   border-bottom: solid 2px #55cca2;
 }
-.navbar-main a{
-  color: #bbb !important;
+.navbar-main .navbar-nav>li>a {
+  color: #bbb;
 }
-.navbar-main a:hover{
-  color: #EEE;
+.navbar-main .navbar-nav>li>a:hover{
+  color: #ddd;
+}
+.navbar-main .navbar-nav>li>a:focus{
+  color: #ddd;
 }
 .navbar-main button{
   background-color: rgb(230, 230, 230);
@@ -37,6 +40,17 @@ body {
 }
 .language-content{
   padding: 20px 5px !important;
+}
+.navbar-main .navbar-brand{
+  color: #ccc;
+  padding: 15px;
+}
+.navbar-main .navbar-brand:hover{
+  color: #eee;
+}
+.navbar-brand-title{
+  position: relative;
+  top: 3px;
 }
 /* END */
 .header-page{
@@ -170,6 +184,25 @@ body {
 .panel-saved-trade{
   margin-bottom: 4px;
 }
+/*About the App*/
+.about-app-header{
+  height: 140px;
+  padding: 10px;
+  background-position: 0px -183px;
+  border-radius: 3px;
+  background-image: url(https://pt.best-wallpaper.net/wallpaper/1024x768/1303/Champions-League-Stadium-Football-Sports-game_1024x768.jpg);
+  background-size: cover;
+}
+.about-app a{
+  color: #2196f3;
+}
+.about-app a:hover{
+  color: #005fab;
+}
+.about-app-body{
+  text-align: left;
+  margin-top: 60px;
+}
 /* About the Developer */
 .about-dev-header{
   height: 140px;
@@ -201,7 +234,7 @@ body {
 .about-dev-footer{
   padding-top: 0;
 }
-/*Social Style*/
+/*Icons Style*/
 .social-icons-24 {
   font-size: 24px;
 }
@@ -228,4 +261,7 @@ body {
 }
 .twitter-icon{
   color: #1da1f2;
+}
+.get-app-on-play-store{
+  width: 180px;
 }
