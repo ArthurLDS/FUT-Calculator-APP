@@ -1,6 +1,7 @@
 angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($scope, $localStorage, $translate){
 
   $scope.collapseShow = false;
+  $scope.currentLanguage = $translate.proposedLanguage();
   $scope.trade = {};
   $scope.$tradeList = $localStorage.tradeList ? $localStorage.tradeList : [];
   $scope.calculate = function(trade){
@@ -39,6 +40,7 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
 
   $scope.changeLanguage = function(langKey){
     $translate.use(langKey);
+    console.log($translate.proposedLanguage());
   };
 
   $scope.isTradeProfit = function(trade){
