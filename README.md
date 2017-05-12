@@ -9,12 +9,14 @@
 - EA TAX (5%) discount per trade.
 - Totally in client-side.
 - 100% JavaScript.
+- Internationalized user interface(English/Portuguese).
 
 ## Frameworks, libs and tools used
 - [AngularJS](angularjs.org) v1.6.2
 - [Jquery](https://jquery.com) v3.3.7
 - [BootSwatch](bootswatch.com) (Paper theme)
 - [AlertifyJS](http://alertifyjs.com/) v1.10.0
+- [Angular Translate](https://angular-translate.github.io/)
 
 ## Trade panel example:
 ![FUT Calculator img](http://i.imgur.com/zvbbaRx.png)
