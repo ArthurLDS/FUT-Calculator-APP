@@ -131,10 +131,13 @@ body {
 .copy-footer{
   color: #959595;
   padding: 15px;
-  height: 51px;
+  height: 100%;
   width: 100%;
   background-color: #000;
   text-align: center;
+}
+.copy-footer p{
+  margin: 0;
 }
 .header-footer img{
   width: 60px;
@@ -188,10 +191,13 @@ body {
 .about-app-header{
   height: 140px;
   padding: 10px;
-  background-position: 0px -183px;
+  background-position: 0px 61%;
   border-radius: 3px;
   background-image: url(https://pt.best-wallpaper.net/wallpaper/1024x768/1303/Champions-League-Stadium-Football-Sports-game_1024x768.jpg);
   background-size: cover;
+}
+.about-app-body .name-app{
+  text-align: center;
 }
 .about-app a{
   color: #2196f3;
@@ -201,7 +207,7 @@ body {
 }
 .about-app-body{
   text-align: left;
-  margin-top: 60px;
+  margin-top: 18px;
 }
 /* About the Developer */
 .about-dev-header{
@@ -220,10 +226,13 @@ body {
 }
 .about-dev-body{
   text-align: left;
-  margin-top: 60px;
+  margin-top: 18px;
 }
 .about-dev-body a{
   opacity: .7;
+}
+.about-dev-body .name-dev{
+  text-align: center;
 }
 .about-dev-body a:hover{
   opacity: 1;
