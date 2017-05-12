@@ -21,7 +21,9 @@ angular.module("futCalculatorApp").config(function($translateProvider){
     ABOUT_DEVELOPER: "About the delveloper",
     ABOUT_THE_APP: "About the APP",
     DOWNLOAD_PLAY_STORE: "Download the APP on Play Store",
-    COLLABORATE_GITHUB: "Collaborate with us on GitHub"
+    COLLABORATE_GITHUB: "Collaborate with us on GitHub",
+    //Form validacions
+    ALERT_FORM_TRADE_INVALID: "There are blank fields! Please fill them."
   };
   var translationsPortuguese = {
     //Trade Operations Describes
@@ -45,7 +47,9 @@ angular.module("futCalculatorApp").config(function($translateProvider){
     ABOUT_DEVELOPER: "Sobre o desenvolvedor",
     ABOUT_THE_APP: "Sobre o APP",
     DOWNLOAD_PLAY_STORE: "Baixe o APP na Play Store",
-    COLLABORATE_GITHUB: "Colabore conosco no GitHub"
+    COLLABORATE_GITHUB: "Colabore conosco no GitHub",
+    //Form validacions
+    ALERT_FORM_TRADE_INVALID: "Há campos obrigatórios em branco."
   };
   $translateProvider.translations("en", translationsEnglish);
   $translateProvider.translations("pt", translationsPortuguese);
