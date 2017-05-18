@@ -23,7 +23,13 @@ angular.module("futCalculatorApp").config(function($translateProvider){
     DOWNLOAD_PLAY_STORE: "Download the APP on Play Store",
     COLLABORATE_GITHUB: "Collaborate with us on GitHub",
     //Form validacions
-    ALERT_FORM_TRADE_INVALID: "There are blank fields! Please fill them."
+    ALERT_FORM_TRADE_INVALID: "There are blank fields! Please fill them.",
+    //Trade Operations
+    DELETE_TRADE: "Delete trade",
+    EDIT_TRADE: "Edit name trade",
+    //Trade Operations describes
+    TRADE_EDITION: "Trade edition",
+    TRADE_INPUT_NAME_EDT: "Edit here the trade's name"
   };
   var translationsPortuguese = {
     //Trade Operations Describes
@@ -49,7 +55,13 @@ angular.module("futCalculatorApp").config(function($translateProvider){
     DOWNLOAD_PLAY_STORE: "Baixe o APP na Play Store",
     COLLABORATE_GITHUB: "Colabore conosco no GitHub",
     //Form validacions
-    ALERT_FORM_TRADE_INVALID: "Há campos obrigatórios em branco."
+    ALERT_FORM_TRADE_INVALID: "Há campos obrigatórios em branco.",
+    //Trade Operations
+    DELETE_TRADE: "Deletar trade",
+    EDIT_TRADE: "Editar nome do trade",
+    //Trade Operations describes
+    TRADE_EDITION: "Trade editor",
+    TRADE_INPUT_NAME_EDT: "Edite aqui o nome do seu trade"
   };
   $translateProvider.translations("en", translationsEnglish);
   $translateProvider.translations("pt", translationsPortuguese);
