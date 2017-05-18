@@ -9,6 +9,11 @@ body {
   margin-right: auto;
   float: none !important;
 }
+.form-control-basic{
+  color: #5a5a5a;
+  padding-left: 2px !important;
+
+}
 /* Panel Style*/
 .panel-primary>.panel-heading {
   color: #ffffff;
@@ -16,6 +21,9 @@ body {
   border-color: #121214;
   border-bottom: solid 2px #47b68f;
   border-radius: 2px;
+}
+.panel-footer{
+  border-top: 1px solid #dddddd;
 }
 /* Nav bar */
 .navbar-main{
@@ -147,6 +155,7 @@ body {
   margin: 30px 0 0 0;
 }
 /* Trade informations */
+
 .profitStatusIcon{
   text-shadow: 0px 0px 10px #b1b1b1;
 }
@@ -187,13 +196,32 @@ body {
 .panel-saved-trade{
   margin-bottom: 4px;
 }
+.panel-saved-trade .trade-footer{
+  position: relative;
+}
+.trade-option{
+  text-align: center;
+  display: inline-block;
+  width: 49%;
+}
+.trade-option .delete-trade{
+  color: #F00;
+}
+/*End*/
+.vertical-line {
+  display: inline-block;
+  height: 44px;
+  border-left: 1px solid #ddd;
+  position: absolute;
+  bottom: 0px;
+}
 /*About the App*/
 .about-app-header{
   height: 140px;
   padding: 10px;
   background-position: 0px 61%;
   border-radius: 3px;
-  background-image: url(https://pt.best-wallpaper.net/wallpaper/1024x768/1303/Champions-League-Stadium-Football-Sports-game_1024x768.jpg);
+  background-image: url(../imgs/about-app-wallpaper.jpg);
   background-size: cover;
 }
 .about-app-body .name-app{
