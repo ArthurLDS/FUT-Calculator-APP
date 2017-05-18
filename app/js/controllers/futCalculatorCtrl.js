@@ -29,6 +29,21 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
     alertify.success(`${trade.name} Deleted successfully!`);
   };
 
+  $scope.editTrade = async function(trade){
+
+    let translations = await $translate(['TRADE_EDITION', 'TRADE_INPUT_NAME_EDT']);
+    console.log(translations);
+
+    alertify.prompt(translations.TRADE_EDITION, translations.TRADE_INPUT_NAME_EDT, trade.name, function(evt, value){
+      $scope.$apply(function() {
+        trade.name = value;
+      });
+      alertify.success("Trade edited successfully");
+    },
+    function(){
+    });
+  }
+
   $scope.isEmptyObject = function(obj){
     return Object.keys(obj).length === 0;
   };
@@ -40,7 +55,6 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
 
   $scope.changeLanguage = function(langKey){
     $translate.use(langKey);
-    console.log($translate.proposedLanguage());
   };
 
   $scope.isTradeProfit = function(trade){
