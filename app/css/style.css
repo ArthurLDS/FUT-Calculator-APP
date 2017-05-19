@@ -157,7 +157,7 @@ body {
 /* Trade informations */
 
 .profitStatusIcon{
-  text-shadow: 0px 0px 10px #b1b1b1;
+  text-shadow: 0.3px 0.3px 1px #616161;
 }
 .isProfitTradeIcon{
   color: #14fd1c;
