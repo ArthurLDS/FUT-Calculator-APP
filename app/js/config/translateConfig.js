@@ -70,5 +70,6 @@ angular.module("futCalculatorApp").config(function($translateProvider){
   $translateProvider.translations("en", translationsEnglish);
   $translateProvider.translations("pt", translationsPortuguese);
 
-  $translateProvider.preferredLanguage("en");
+  let broswerLanguage = navigator.language.includes("pt") ? "pt" : "en";
+  $translateProvider.preferredLanguage(broswerLanguage);
 });
