@@ -30,17 +30,16 @@ angular.module("futCalculatorApp").controller("futCalculatorCtrl", function($sco
   };
 
   $scope.editTrade = async function(trade){
-
     let translations = await $translate(['TRADE_EDITION', 'TRADE_INPUT_NAME_EDT']);
-    console.log(translations);
 
     alertify.prompt(translations.TRADE_EDITION, translations.TRADE_INPUT_NAME_EDT, trade.name, function(evt, value){
       $scope.$apply(function() {
-        trade.name = value;
+        trade.name = value && !/^\s+$/.test(value)? value : "Unnamed Trade";
       });
       alertify.success("Trade edited successfully");
     },
     function(){
+      //Cancel function...
     });
   }
 
