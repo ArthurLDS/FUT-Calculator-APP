@@ -7,9 +7,9 @@
 - Saving trades in LocalStorage
 - Easy trade search.
 - EA TAX (5%) discount per trade.
-- Totally in client-side.
+- Totally on client-side.
 - 100% JavaScript.
-- Internationalized user interface(English/Portuguese).
+- Internationalized user interface (English/Portuguese).
 
 ## Frameworks, libs and tools used
 - [AngularJS](angularjs.org) v1.6.2
