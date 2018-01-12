@@ -239,11 +239,12 @@ body {
 }
 /* About the Developer */
 .about-dev-header{
-  height: 140px;
-  padding: 10px;
-  background-position: 0px -211px;
-  border-radius: 3px;
-  background-image: url(https://scontent.fpoa12-1.fna.fbcdn.net/v/t1.0-9/15578666_1302103556514343_6474261687287703631_n.jpg?oh=bda745ca731525a45bc60a982615f507&oe=5992F44B);
+    height: 140px;
+    padding: 10px;
+    background-position: 0px -22px;
+    border-radius: 3px;
+    background-image: url(https://mundodama.com.br/wp-content/uploads/2015/01/276894_Papel-de-Parede-Cidade-Muito-Iluminada_1920x1200.jpg);
+    background-size: cover;
 }
 .img-dev{
   border: solid 3px #cecece;
